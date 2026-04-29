@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@theme {
+  --color-yt-dark: var(--background);
+  --color-yt-dark-card: var(--card-bg);
+  --color-yt-dark-hover: var(--hover-bg);
+  --color-yt-accent: var(--accent-color);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f0f0f;
+  --accent-color: #00e5ff;
+  --card-bg: #f3f4f6;
+  --hover-bg: #e5e7eb;
+  --border-color: #e5e7eb;
+  --sidebar-bg: #ffffff;
+}
+
+.dark {
+  --background: #0f0f0f;
+  --foreground: #ffffff;
+  --accent-color: #00e5ff;
+  --card-bg: #1e1e1e;
+  --hover-bg: #272727;
+  --border-color: #272727;
+  --sidebar-bg: #0f0f0f;
+}
+
+:root {
+  --radius-factor: 1rem; /* default rounded */
+}
+
+[data-radius="sharp"] {
+  --radius-factor: 0rem;
+}
+
+[data-radius="rounded"] {
+  --radius-factor: 1rem;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Cairo', sans-serif;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rounded-custom {
+  border-radius: var(--radius-factor);
+}
+
+.rounded-custom-sm {
+  border-radius: calc(var(--radius-factor) * 0.5);
+}
+
+.rounded-custom-lg {
+  border-radius: calc(var(--radius-factor) * 1.5);
+}
+
+.rounded-custom-full {
+  border-radius: 9999px;
+}
+
+/* Ensure these are applied */
+.bg-main { background-color: var(--background); }
+.text-main { color: var(--foreground); }
+.bg-sidebar { background-color: var(--sidebar-bg); }
+.border-custom { border-color: var(--border-color); }
+.bg-custom-card { background-color: var(--card-bg); }
+.bg-hover { background-color: var(--hover-bg); }
+
+.bg-custom-card {
+  background-color: var(--card-bg);
+}
+
+.border-custom {
+  border-color: var(--border-color);
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.bg-accent {
+  background-color: var(--accent-color);
+}
+
+.bg-main {
+  background-color: var(--background);
+}
+
+.bg-hover {
+  background-color: var(--hover-bg);
+}
+
+.bg-custom-card {
+  background-color: var(--card-bg);
+}
+
+.border-custom {
+  border-color: var(--border-color);
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.bg-accent {
+  background-color: var(--accent-color);
+}
+
+@layer utilities {
+  .book-thumbnail {
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .book-card {
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+
+  .book-card:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
